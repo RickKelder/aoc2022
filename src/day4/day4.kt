@@ -28,7 +28,7 @@ fun part2(lineList: List<String>) {
                     IntRange(Integer.parseInt(it[0].split("-")[0]), Integer.parseInt(it[0].split("-")[1])),
                     IntRange(Integer.parseInt(it[1].split("-")[0]), Integer.parseInt(it[1].split("-")[1]))
             )}
-            .map { it[0].toList().intersect(it[1].toList()).size > 0 }
+            .map { it[0].toList().intersect(it[1].toList()).isNotEmpty() }
             .count { it }
     println("part2: $intersectCount")
 }
