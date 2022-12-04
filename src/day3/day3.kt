@@ -15,24 +15,24 @@ fun part1(lineList: List<String>) {
             .map { it
                     .substring(0, it.length/2)
                     .toCharArray()
-                    .intersect(it.substring(it.length/2).asIterable())
+                    .intersect(it.substring(it.length/2).asIterable().toSet())
                     .single() }
             .map { if (it.isLowerCase()) it.code-96 else it.code-64+26 }
             .sum()
-    println("part1: "+sumPart1)
+    println("part1: $sumPart1")
 }
 
 fun part2(lineList: List<String>) {
     var charList = mutableListOf<Char>()
-    for (i in 0..lineList.size-1 step 3) {
+    for (i in lineList.indices step 3) {
         charList.add(
                 lineList[i].toCharArray().intersect(
-                    lineList[i+1].toCharArray().asIterable()
+                        lineList[i+1].toCharArray().asIterable().toSet()
                 ).intersect(
-                    lineList[i+2].toCharArray().asIterable()
+                        lineList[i+2].toCharArray().asIterable().toSet()
                 ).single()
         )
     }
     var sumPart2 = charList.map { if (it.isLowerCase()) it.code-96 else it.code-64+26 }.sum();
-    println("part2: "+sumPart2)
+    println("part2: $sumPart2")
 }
