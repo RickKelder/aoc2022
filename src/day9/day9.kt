@@ -74,7 +74,7 @@ fun getDelta(groupValues:List<String>, toMove:Int):MutableList<Int> {
 }
 
 fun toHeadMovement(delta:List<Int>):List<Int> {
-    return delta.map { if (it > 0) 1 else if (it < 0) -1 else 0 }
+    return delta.map { if (it == 0) 0 else it/Math.abs(it) }
 }
 
 fun toTailMovement(deltaBody:List<Int>):MutableList<Int> {
