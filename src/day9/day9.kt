@@ -1,7 +1,6 @@
 package day9
 
 import day8.toInt
-import groovy.lang.Tuple
 import java.io.File
 import java.io.InputStream
 fun main(args: Array<String>) {
