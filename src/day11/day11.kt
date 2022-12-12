@@ -7,11 +7,14 @@ import java.math.BigInteger
 import javax.print.attribute.IntegerSyntax
 
 fun main(args: Array<String>) {
+    val start = System.currentTimeMillis()
     val inputStream: InputStream = File("input/day11/input.txt").inputStream()
     var lineList = mutableListOf<String>()
     inputStream.bufferedReader().forEachLine { lineList.add(it) }
     part1(lineList)
     part2(lineList)
+    val end = System.currentTimeMillis()
+    println("Duration: " + (end - start))
 }
 
 fun part1(lineList: List<String>) {
